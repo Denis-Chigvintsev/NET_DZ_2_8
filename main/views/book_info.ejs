@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Информация о книге</title>
+  </head>
+
+  <body>
+    <h3>Информация о книге</h3>
+
+    <div>
+      <div>Название книги: <%=i_book[0].title%></div>
+      <br />
+      <div>Описание книги: <%= i_book[0].description %></div>
+      <br />
+      <div>Автор: <%=i_book[0].authors%></div>
+      <br />
+      <% if (i_book[0].favorite ==true) {%>
+      <div>Популярная? Да</div>
+      <% } else { %>
+      <div>Популярная? Нет</div>
+      <% } %>
+
+      <br />
+      <div>Обложка<%=i_book[0].fileCover%></div>
+      <br />
+      <div>Имя Файла: <%=i_book[0].fileName%></div>
+      <br />
+      <div>Файл: <%=i_book[0].fileBook%></div>
+      <br />
+      <div>Количество просмотров: <%=counter_ejs.counter%></div>
+
+      <br />
+      <button id="<%= i_book[0].id %>" {% onclick="click_delete(id)" %}>
+        Удалить
+      </button>
+      <button id="<%= i_book[0].id %>" onclick="click_edit(id)" %}>
+        Редактировать
+      </button>
+    </div>
+    <%
+    fetch(`http://host.docker.internal:100/api/books/counter/${i_book[0].id}/incr`,
+    { method: 'POST' }); %>
+  </body>
+</html>
+
+<script>
+  async function click_delete(id) {
+    await fetch(`./${id}`, { method: 'delete' });
+    window.location.replace('/api/books');
+  }
+  function click_edit(id) {
+    window.location.replace(`/api/books/${id}/edit_form`);
+  }
+</script>
+
+<style>
+  button {
+    cursor: pointer;
+  }
+</style>

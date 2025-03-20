@@ -1,0 +1,5 @@
+{
+  "editor.autoSurround": "languageDefined",
+  "editor.language.brackets": [],
+  "editor.autoClosingBrackets": "languageDefined"
+}

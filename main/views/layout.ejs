@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="layout_container">
+      <h1 class="Library">Библиотека</h1>
+
+      <nav>
+        <a href="/api/books">Главная</a> |
+        <a href="/api/books/add_book">Добавление новой книги</a> |
+        <a href="/api/users/user_profile"> Ваш профиль пользователя</a> |
+        <a href="/api/users/logout"> Logout</a> |
+      </nav>
+      <%-body %>
+    </div>
+  </body>
+</html>
+
+<style>
+  .Library {
+  }
+  body {
+    display: flex;
+    justify-content: center;
+  }
+  a {
+    text-decoration: none;
+  }
+  .layout_container {
+    width: 70%;
+    min-height: 90vh;
+    background-color: whitesmoke;
+    border: 1px solid lightgray;
+    padding: 3%;
+  }
+
+  a:hover {
+    text-shadow: 1px 1px lightgrey;
+  }
+  html {
+    margin-top: -20px;
+  }
+  button {
+    border: 1px solid grey;
+    border-radius: 2px;
+    box-shadow: 1px 1px;
+    cursor: pointer;
+  }
+  button:hover {
+    border: 1px solid black;
+    box-shadow: 1px 1px black;
+    text-shadow: 1px;
+    color: black;
+  }
+</style>

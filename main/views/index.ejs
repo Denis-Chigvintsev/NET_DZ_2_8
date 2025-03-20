@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Просмотр всех книг библиотеки</title>
+  </head>
+  <body>
+    <h3>Список книг</h3>
+    <% let ii=1 %> <% let id %>
+    <ul>
+      <% if(books.length==0){ %>
+        <div>В Вашей библиотеке сейчас нет книг!</div>
+     <% } %>
+      <% for (let book of books){%>
+      <li class="book_list">
+        <%=ii%>. Название книги: <%=book.title%> Автор: <%= book.authors%>
+        <div class="group_buttons">
+          <button id="<%= book.id %>" {% onclick="click_info(id)" %}>
+            Инфо
+          </button>
+          <button id="<%= book.id %>" {% onclick="click_delete(id)" %}>
+            Удалить
+          </button>
+          <button id="<%= book.id %>" onclick="click_edit(id)" %}>
+            Редактировать
+          </button>
+        </div>
+      </li>
+      <% ii=ii+1 %> <%} %>
+    </ul>
+  </body>
+</html>
+
+<script>
+  async function click_delete(id) {
+    await fetch(`./${id}`, { method: 'delete' });
+    window.location.reload();
+  }
+  function click_info(id) {
+    window.location.replace(`/api/books/${id}`);
+  }
+  function click_edit(id) {
+    window.location.replace(`/api/books/${id}/edit_form`);
+  }
+</script>
+
+<style>
+  button {
+    cursor: pointer;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+  .book_list {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+  }
+  .group_buttons {
+    display: flex;
+    justify-content: end;
+  }
+</style>

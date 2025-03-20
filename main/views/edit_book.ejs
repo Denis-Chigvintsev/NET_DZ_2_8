@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Редактирование</title>
+</head>
+<body>
+  <br>
+    <div class='form_wrap'>
+        <h4>Форма редактирования книги</h4>
+        
+        <form method="post" action="/api/books/<%=i_book[0].id%>"> 
+          <label>
+            
+            
+            Название книги:
+            <input type='text' name='title' id="title" value="<%=i_book[0].title %>" size="24"/>
+          </label>
+          <br />
+          <br />
+          <label>
+            О чем книга:
+            <input type='text' name='description'   value="<%=i_book[0].description %>" size="28"/>
+          </label>
+          <br />
+          <br />
+          <label>
+            Автор:
+            <input type='text' name='authors'   value="<%=i_book[0].authors %>"  size="34"                />
+          </label>
+          <br />
+          <br />
+          <label>Популярная?:</label>
+          <select name="favorite"  value="<%=i_book[0].favorite %>"  >
+            <option value="" >-Да/Нет-</option> 
+            <option value=true>Да</option>
+            <option value=false>Нет</option>
+          </select>
+          <br />
+          <br />
+  
+          <label>
+            Обложка:
+            <input type='text' name='fileCover' value="<%=i_book[0].fileCover %>"  size="31"  />
+          </label>
+          <br />
+          <br />
+          <label>
+            Имя файла:
+            <input type='text' name='fileName'  value="<%=i_book[0].fileName %>"   size="29"              />
+          </label>
+          <br />
+          <br />
+          <button type='submit'>Отправить данные</button>
+        </form>
+        <br/>
+            
+
+</body>
+</html>
+
+
+
+<style>
+  .form_wrap {
+      width: 320px;
+    
+      
+      border:1px solid grey;
+      border-radius: 5px;
+      border: 1px solid darkgray;     
+      padding: 10px;
+      
+    
+    }
+  
+  
+  </style>

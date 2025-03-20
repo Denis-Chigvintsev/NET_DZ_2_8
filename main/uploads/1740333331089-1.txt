@@ -1,0 +1,8 @@
+{       "title": "Евгений Оенгин1",
+        "description": "Роман о том, что нужно ковать железо не отходя от кассы ",
+        "authors": "Пушкин1",
+        "favorite": true,
+        "fileCover": "Puskin11",
+        "fileName": "Onegin.pdf1",   
+        "fileBook":"Onegin.pdf1" 
+}

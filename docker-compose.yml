@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  library:
+    build: ./main
+    ports:
+      - '80:80'
+    restart: always
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+
+  counter:
+    build: ./counter
+
+    ports:
+      - '100:100'
+    restart: always
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    volumes:
+      - /counter-data:/app/data
+
+  mongo:
+    image: mongo:7.0
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: denis
+      MONGO_INITDB_ROOT_PASSWORD: chigvintsev
+    ports:
+      - 500:27017
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    volumes:
+      - mongodata:/data/db
+
+volumes:
+  mongodata:
+    driver: local
+  counter-data:
+    driver: local

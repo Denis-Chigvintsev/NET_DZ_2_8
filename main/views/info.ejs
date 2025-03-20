@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Информация о книге</title>
+  </head>
+  <body>
+    <h1>Информация о книге</h1>
+    
+    <li>
+      || Название книги: <%=bookS[0].title%> || Автор: <%=
+      books[0].authors%>|| О чем книга: <%= books[0].description %>
+      <div>
+        
+        <button  id="<%= book.id %>" {% onclick="click_info(id)" %}>
+          Инфо
+        </button>
+        <button id="<%= book.id %>" {% onclick="click_delete(id)" %}>
+          Удалить
+        </button>
+        <button id="<%= book.id %>" onclick="click_edit(id)" %}>
+          Редактировать
+        </button>
+      </div>
+    </li>
+
+
+
+    
+  </body>
+</html>
+
+<style>
+  .f {
+    color: red;
+  }
+</style>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Информация о книге</title>
+  </head>
+
+  <body>
+    <h3>Ваш профиль пользователя</h3>
+
+    <div>
+      <div>Логин: <%=i_user[0].login%></div>
+      <br />
+
+      <div>Имя: <%=i_user[0].first_name%></div>
+      <br />
+      <div>Фамилия: <%=i_user[0].last_name%></div>
+      <br />
+      <div>Дата Рождения: <%=i_user[0].DOB%></div>
+      <br />
+      <div>Телефон: <%=i_user[0].phone1%></div>
+      <br />
+      <div>Дополнительный телефон: <%=i_user[0].phone2%></div>
+      <br />
+      <div>Электронная почта: <%=i_user[0].email%></div>
+      <br />
+
+      <button id="<%= i_user[0].id %>" {% onclick="click_delete(id)" %}>
+        Удалить пользователя НАВСЕГДА
+      </button>
+      <button id="<%= i_user[0].id %>" onclick="click_edit(id)" %}>
+        Редактировать профиль
+      </button>
+    </div>
+  </body>
+</html>
+
+<script>
+  async function click_delete(id) {
+    await fetch(`./delete_user_profile/${id}`, { method: 'delete' });
+    window.location.replace('/api/books');
+  }
+
+  function click_edit(id) {
+    window.location.replace(`/api/users/edit_user_profile/${id}`);
+  }
+</script>
+
+<style>
+  button {
+    cursor: pointer;
+  }
+</style>

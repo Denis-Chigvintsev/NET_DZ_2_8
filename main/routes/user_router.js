@@ -21,7 +21,7 @@ passport.use(
       .then((i_user) => {
         selected_user = i_user;
 
-        if (!selected_user) {
+        if (!selected_user.toString()) {
           done(null, false, { message: 'неправильное username' });
         } else {
           let isPassCorrect;
@@ -45,7 +45,7 @@ passport.use(
             } else {
               done(null, false, { message: 'неправильное password' });
             }
-          }, 2000);
+          }, 500);
         }
       })
       .catch((error) => console.log('ошибка', error));

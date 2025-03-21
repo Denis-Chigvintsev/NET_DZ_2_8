@@ -45,7 +45,7 @@ passport.use(
             } else {
               done(null, false, { message: 'неправильное password' });
             }
-          }, 500);
+          }, 2000);
         }
       })
       .catch((error) => console.log('ошибка', error));

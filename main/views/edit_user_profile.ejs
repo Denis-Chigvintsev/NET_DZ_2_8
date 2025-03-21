@@ -10,45 +10,45 @@
     <div class='form_wrap'>
         <h4>Отредактируйте Ваши данные</h4>
         
-        <form method="post" action="/api/users/edit_user_profile/<%=checked_user[0].id%>"> 
-            <div>Логин: <%=checked_user[0].login%></div>
+        <form method="post" action="/api/users/edit_user_profile/<%=i_user[0].id%>"> 
+            <div>Логин: <%=i_user[0].login%></div>
             <br />
 
           <label>
             
             
             Имя:
-            <input type='text' name='first_name' id="first_name" value="<%=checked_user[0].first_name %>"  size="40"/>
+            <input type='text' name='first_name' id="first_name" value="<%=i_user[0].first_name %>"  size="40"/>
           </label>
           <br />
           <br />
           <label>
             Фамилия:
-            <input type='text' name='last_name'   value="<%=checked_user[0].last_name %>" size="35" />
+            <input type='text' name='last_name'   value="<%=i_user[0].last_name %>" size="35" />
           </label>
           <br />
           <br />
           <label>
             Дата Рождения:
-            <input type='text' name='DOB'   value="<%=checked_user[0].DOB %>" size="29"/>
+            <input type='text' name='DOB'   value="<%=i_user[0].DOB %>" size="29"/>
           </label>
           <br />
           <br />
           <label>
             Телефон:
-            <input type='text' name='phone1' value="<%=checked_user[0].phone1 %>" size="36"   />
+            <input type='text' name='phone1' value="<%=i_user[0].phone1 %>" size="36"   />
           </label>
           <br />
           <br />
           <label>
             Второй телефон:
-            <input type='text' name='phone2'  value="<%=checked_user[0].phone2 %>"  size="28"/>
+            <input type='text' name='phone2'  value="<%=i_user[0].phone2 %>"  size="28"/>
           </label>
           <br />
           <br />
           <label>
             Электронная почта:
-            <input type='text' name='email'  value="<%=checked_user[0].email %>" size="25" />
+            <input type='text' name='email'  value="<%=i_user[0].email %>" size="25" />
           </label>
           <br />
           <br />

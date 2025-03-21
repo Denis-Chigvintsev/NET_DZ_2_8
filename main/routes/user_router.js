@@ -111,7 +111,9 @@ async function get_user_profile(req, res) {
 }
 
 function edit_user_profile(req, res) {
-  res.render('edit_user_profile.ejs', { checked_user });
+  Users.find({ id: checked_user[0].id }).then((i_user) => {
+    res.render('edit_user_profile.ejs', { i_user });
+  });
 }
 async function post_user_profile(req, res) {
   req.body.id = checked_user[0].id;
